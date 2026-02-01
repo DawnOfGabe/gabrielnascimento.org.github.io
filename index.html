@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel | Currículo Interativo</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="accordion-container" id="main-container">
+
+        <!-- Tab 1: Sobre Mim -->
+        <section class="accordion-item active" id="tab-about">
+            <div class="accordion-header">
+                <h2>SOBRE MIM</h2>
+            </div>
+            <div class="accordion-content">
+                <div class="content-wrapper about-wrapper">
+                    <div class="top-section">
+                        <div class="hero-text">
+                            <h4>Olá, eu sou o Gabriel :)</h4>
+                            <h1>Especialista em Gestão de Processos & Gestão Financeira</h1>
+
+                            <p class="description">
+                                Sou um profissional com trajetória sólida iniciada no setor financeiro, onde desenvolvi
+                                uma visão analítica rigorosa em ambientes de alta complexidade em Salvador e São Paulo.
+                                Minha carreira é marcada pela capacidade de assumir responsabilidades crescentes e pela
+                                versatilidade,
+                                atuando como ponto focal em reestruturações estratégicas e na estruturação de núcleos
+                                operacionais.
+                                No últimos anos, venho unindo minha base acadêmica e experiência prática com minha visão
+                                sistêmica e afinidade com TI para atuar na intersecção entre gestão e tecnologia. Como
+                                Especialista em Processos, foco na transformação digital de fluxos de trabalho e rotinas
+                                empresariais,
+                                utilizando metodologias de mapeamento e ferramentas BPMS para garantir conformidade,
+                                segurança e eficiência operacional.
+                            </p>
+                            <button id="read-more-btn" class="read-more-btn">Minha trajetória</button>
+                        </div>
+                        <div class="photo-block">
+                            <img src="public/foto.png" alt="Gabriel">
+                        </div>
+                    </div>
+                    <!-- Mid-section removed as requested -->
+
+                    <div class="bottom-section">
+                        <div class="hobbies-block">
+                            <h3>Hobbies</h3>
+                            <div class="hobby-item">
+                                <img src="public/hobbies/gaming.svg" alt="Videogames">
+                                <span>Videogames</span>
+                            </div>
+                            <div class="hobby-item">
+                                <img src="public/hobbies/swimming.svg" alt="Natação">
+                                <span>Natação</span>
+                            </div>
+                            <div class="hobby-item">
+                                <img src="public/hobbies/music.svg" alt="Música">
+                                <span>Música</span>
+                            </div>
+                            <div class="hobby-item">
+                                <img src="public/hobbies/3d-printing.svg" alt="Impressão 3D">
+                                <span>Impressão 3D</span>
+                            </div>
+                        </div>
+                        <div class="contact-block">
+                            <h3>Contato</h3>
+                            <p><a href="mailto:mgabrieldn@gmail.com">mgabrieldn@gmail.com</a></p>
+                            <p><a href="https://wa.link/w5bj91" target="_blank">+55 (11) 93003-7187</a></p>
+                            <p>Salvador, BA</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Background Image Layer -->
+                <div class="bg-image about-bg"></div>
+            </div>
+        </section>
+
+        <!-- Modal Structure -->
+        <div id="bio-modal" class="modal-overlay">
+            <div class="modal-content">
+                <button class="modal-close" id="modal-close">&times;</button>
+                <div class="modal-body">
+                    <h1>Minha trajetória</h1>
+                    <p>Me chamo Marcos Gabriel Dias Nascimento, sou natural de Santo Antônio de Jesus - BA e tenho 28
+                        anos. Sou Bacharel em Administração pela UNEB (2019).</p>
+
+                    <p>Iniciei minha carreira ainda aos 17 anos como atendente de loja varejista, tendo em 2019 recebido
+                        a minha primeira oportunidade de trabalho em Salvador que me levou a mudar para a capital. Nessa
+                        empresa, comecei como <strong>Assistente Administrativo e Financeiro</strong>, sempre lidando
+                        com pessoas diversas e demandas desafiadoras. Graças a minha performance e reconhecimento da
+                        liderança, recebi promoções que me levaram ao segundo cargo de maior responsabilidade do
+                        escritório.</p>
+
+                    <p>Após 4 anos de serviço e de muito aprendizado, fui indicado pelo meu chefe do momento a uma vaga
+                        em São Paulo para participar da equipe da Betsul enquanto <strong>Analista Financeiro</strong>.
+                        Por ser uma empresa muito maior, com estrutura mais complexa e responsabilidades ainda mais
+                        elevadas, fui acompanhado de perto e mentorado pelo meu líder, que em poucos meses sentiu
+                        confiança no meu trabalho e aos poucos foi transferindo as tarefas e responsabilidades que lhe
+                        competiram para mim para que ele pudesse participar de forma mais ativa em outras questões da
+                        organização. Nesse período, iniciei mais uma graduação em Análise e Desenvolvimento de Sistemas.
+                    </p>
+
+                    <p>Após 2 anos de serviço em São Paulo, a empresa passou por uma reestruturação estratégica e me fez
+                        o convite para retornar a Salvador enquanto ponto focal de assuntos financeiros, onde ao longo
+                        de um ano tive a oportunidade de auxiliar na criação e treinamento de um novo Núcleo Financeiro,
+                        passando o bastão para outro colaborador e evoluindo o foco da minha atuação para o papel de
+                        <strong>Analista de Processos</strong>, mas sem abandonar minha base analítica.
+                    </p>
+
+                    <p>Neste novo cargo, pude mesclar de forma ímpar meus conhecimentos de formação e atuação
+                        profissional direta (gestão, rotinas administrativas e finanças) com meus conhecimentos em
+                        tecnologia, área de interesse pessoal e hobby ao qual me dedico. Dessa forma, consegui passear
+                        pelos setores, analisar as suas dificuldades e pontos de melhoria, mapear e estruturar processos
+                        e transportar eles para ferramentas online que organizavam o fluxo das demandas e garantiam
+                        conformidade e cumprimento das regras organizacionais. Tive ainda as oportunidades de contribuir
+                        em assuntos ligados à Compliance, área pela qual desenvolvi afinidade, e palestrar para internos
+                        e externos sobre temas relacionados à TI, Segurança da Tecnologia, Prevenção a Lavagem de
+                        dinheiro e Regulamentação de Bets, Jogos Online e Apostas Esportivas.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Certificações & Skills -->
+        <section class="accordion-item" id="tab-skills">
+            <div class="accordion-header">
+                <h2>CERTIFICAÇÕES & SKILLS</h2>
+            </div>
+            <div class="accordion-content">
+                <div class="content-wrapper split-layout">
+                    <!-- Left Column: Certifications -->
+                    <div class="split-col left-col">
+                        <div class="section-title">
+                            <h1>Certificações</h1>
+                        </div>
+
+                        <div class="timeline">
+                            <!-- 2017 -->
+                            <div class="timeline-item">
+                                <div class="year">2017</div>
+                                <div class="cert-list">
+                                    <div class="cert-item">
+                                        <h3>Inglês Avançado</h3>
+                                        <h4>CCAA</h4>
+                                        <p>Fluência em conversação, leitura e escrita.</p>
+                                        <div class="cert-preview">
+                                            <img src="public/certificados/ccaa-1.png" alt="Certificado CCAA">
+                                        </div>
+                                    </div>
+
+                                    <div class="cert-item">
+                                        <h3>Standard English Course</h3>
+                                        <h4>Stafford House Toronto</h4>
+                                        <p>Aprimoramento em conversação e expansão de vocabulário.</p>
+                                        <div class="cert-preview">
+                                            <img src="public/certificados/Stafford House-1.png"
+                                                alt="Certificado Stafford House">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2019 -->
+                            <div class="timeline-item">
+                                <div class="year">2019</div>
+                                <div class="cert-list">
+                                    <div class="cert-item">
+                                        <h3>Bacharel em Administração</h3>
+                                        <h4>Universidade do Estado da Bahia - UNEB</h4>
+                                        <p>Base sólida em gestão e suas diversas ramificações.</p>
+                                        <div class="cert-preview">
+                                            <img src="public/certificados/uneb-1.png" alt="Diploma UNEB">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2024 -->
+                            <div class="timeline-item">
+                                <div class="year">2024</div>
+                                <div class="cert-list">
+                                    <div class="cert-item">
+                                        <h3>Compliance sob Medida</h3>
+                                        <h4>SEBRAE</h4>
+                                        <p>Conhecimentos gerais sobre Compliance e suas aplicações práticas.</p>
+                                        <div class="cert-preview">
+                                            <img src="public/certificados/compliance-1.png"
+                                                alt="Certificado Compliance">
+                                        </div>
+                                    </div>
+
+                                    <div class="cert-item">
+                                        <h3>Ética e Integridade para Micro e Pequenas Empresas</h3>
+                                        <h4>SEBRAE</h4>
+                                        <p>Fundamentos da ética nos negócios e a importância da integridade empresarial
+                                            para
+                                            o sucesso sustentável das organizações.</p>
+                                        <div class="cert-preview">
+                                            <img src="public/certificados/etica-e-integridade-1.png"
+                                                alt="Certificado Ética">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2025 -->
+                            <div class="timeline-item">
+                                <div class="year">2025</div>
+                                <div class="cert-list">
+                                    <div class="cert-item">
+                                        <h3>HTML e CSS</h3>
+                                        <h4>Alura</h4>
+                                        <p>Ambientes de Desenvolvimento, Estrutura de Arquivos e Tags. Conceitos de
+                                            Front-end.</p>
+                                        <div class="cert-preview">
+                                            <img src="public/certificados/html-e-css-1.png"
+                                                alt="Certificado HTML e CSS">
+                                        </div>
+                                    </div>
+                                    <div class="cert-item">
+                                        <h3>Imersão Front-End</h3>
+                                        <h4>Alura</h4>
+                                        <p>Desenvolvimento de habilidades em HTML, CSS e JavaScript.</p>
+                                        <div class="cert-preview">
+                                            <img src="public/certificados/imersao-front-end-1.png"
+                                                alt="Certificado Imersão Front-End">
+                                        </div>
+                                    </div>
+                                    <div class="cert-item">
+                                        <h3>Mapeamento de Processos</h3>
+                                        <h4>UDEMY</h4>
+                                        <p>Capacitação técnica em Metodologia BPM para o mapeamento de processos
+                                            (AS-IS),
+                                            identificação de gargalos e desenho de fluxogramas.</p>
+                                        <div class="cert-preview">
+                                            <img src="public/certificados/mapeamento-de-processos-1.png"
+                                                alt="Certificado Mapeamento de Processos">
+                                        </div>
+                                    </div>
+                                    <div class="cert-item">
+                                        <h3>Especialização em Fusion Platform</h3>
+                                        <h4>Neomind University</h4>
+                                        <p>Conhecimento técnico avançado em Fusion Platform para a gestão de processos
+                                            BPM.
+                                        </p>
+                                        <div class="cert-preview">
+                                            <img src="public/certificados/fusion-1.png" alt="Certificado Fusion">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Skills -->
+                    <div class="split-col right-col">
+                        <div class="section-title">
+                            <h1>Skills</h1>
+                        </div>
+                        <div class="skills-content">
+                            <!-- Category 1 -->
+                            <div class="skill-category">
+                                <h3>1. Gestão Financeira & Tesouraria</h3>
+                                <ul>
+                                    <li><strong>Gestão de Fluxo de Caixa</strong> Planejamento, controle orçamentário e
+                                        acompanhamento de saldos.</li>
+                                    <li><strong>Ciclo de Contas a Pagar e Receber</strong> Lançamentos, baixas,
+                                        conciliações bancárias e gestão de cobranças e reembolsos.</li>
+                                    <li><strong>Operações Internacionais</strong> Execução de pagamentos/recebimentos
+                                        (FX) e relacionamento com Trustees.</li>
+                                    <li><strong>Gestão de Criptoativos</strong> Manejo e custódia de criptomoedas no
+                                        contexto corporativo.</li>
+                                    <li><strong>Reporting</strong> Elaboração de Financial Statements (fechamento anual)
+                                        e reporte de resultados para Stakeholders.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Category 2 -->
+                            <div class="skill-category">
+                                <h3>2. Eficiência Operacional & Processos</h3>
+                                <ul>
+                                    <li><strong>Modelagem de Processos</strong> Mapeamento AS-IS/TO-BE e redesenho de
+                                        fluxos de trabalho.</li>
+                                    <li><strong>Transformação Digital</strong> Implantação de ferramentas BPMS e
+                                        automação de processos financeiros.</li>
+                                    <li><strong>Governança & Compliance</strong> Padronização de recursos, afinidade com
+                                        auditorias e foco em controle interno.</li>
+                                    <li><strong>Otimização de Recursos</strong> Foco em eficiência operacional e redução
+                                        de gargalos.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Category 3 -->
+                            <div class="skill-category">
+                                <h3>3. Liderança & Soft Skills</h3>
+                                <ul>
+                                    <li><strong>Comunicação Bilíngue</strong> Proficiência em inglês para reuniões de
+                                        alinhamento e negociações internacionais.</li>
+                                    <li><strong>Gestão de Stakeholders</strong> Interface direta com lideranças e
+                                        coordenação de equipes multidisciplinares.</li>
+                                    <li><strong>Mentoria e Treinamento</strong> Capacitação de times e disseminação de
+                                        cultura de processos.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-image proj-bg"></div>
+            </div>
+        </section>
+
+        <!-- Certificate Modal -->
+        <div id="cert-modal" class="modal-overlay">
+            <div class="cert-modal-content">
+                <button class="modal-close" id="cert-modal-close"
+                    style="z-index: 1001; top: 1rem; right: 2rem;">&times;</button>
+                <div class="cert-modal-body" id="cert-pdf-container">
+                    <!-- PDF Embed will be injected here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Destaques Recentes -->
+        <section class="accordion-item" id="tab-achievements">
+            <div class="accordion-header">
+                <h2>DESTAQUES RECENTES</h2>
+            </div>
+            <div class="accordion-content">
+                <div class="content-wrapper">
+                    <div class="section-title">
+                        <h1>Destaques Recentes</h1>
+                    </div>
+                    <div class="projects-grid">
+                        <!-- Card 1 -->
+                        <div class="project-card">
+                            <div class="card-content">
+                                <h3>Construção de Núcleo Financeiro</h3>
+                                <div class="card-text">
+                                    <p>Auxiliei na construção do novo Núcleo Financeiro, treinando colaboradores quanto
+                                        a suas demandas, boas práticas, técnicas e sistemas de gestão.</p>
+                                </div>
+                                <div class="card-tags">
+                                    <span>Mentorias e treinamentos</span>
+                                    <span>Bagagem profissional</span>
+                                    <span>Versatilidade</span>
+                                    <span>Habilidades comunicativas</span>
+                                    <span>Fluxos de trabalho</span>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <span>Ler mais</span>
+                                <img src="public/arrow.svg" alt="arrow" class="arrow-icon">
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="project-card">
+                            <div class="card-content">
+                                <h3>Implantação de Gestão por Processos</h3>
+                                <div class="card-text">
+                                    <p>Assumi a posição de Analista de Processos. Implantei a ferramenta de gestão BPM
+                                        Neomind Fusion na organização. Treinei todos os colaboradores na utilização da
+                                        ferramenta e através dela fui capaz de construir fluxos complexos de processos
+                                        com focos em:</p>
+                                    <ul>
+                                        <li>Elaboração e revisão contratual</li>
+                                        <li>Organização do fluxo de trabalho do time jurídico</li>
+                                        <li>Solicitações de compras de insumos</li>
+                                        <li>Solicitações de viagens</li>
+                                        <li>Reembolsos</li>
+                                    </ul>
+                                    <p>Tudo isso com ferramentas que auxiliam em governança e auditorias.</p>
+                                </div>
+                                <div class="card-tags">
+                                    <span>Versatilidade e adaptabilidade</span>
+                                    <span>Conhecimento em TI</span>
+                                    <span>Melhoria Contínua</span>
+                                    <span>Gestão por processos</span>
+                                    <span>Notação BPMN</span>
+                                    <span>Fluxos de trabalho</span>
+                                    <span>Habilidades comunicativas</span>
+                                    <span>Otimização de recursos</span>
+                                    <span>Interface com Stakeholders</span>
+                                </div>
+                            </div>
+                            <!-- Single Image for Block 2 -->
+                            <div class="card-image-col">
+                                <img src="public/highlights/2-1.png" alt="Gestão por Processos"
+                                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                            </div>
+
+                            <div class="card-footer">
+                                <span>Ler mais</span>
+                                <img src="public/arrow.svg" alt="arrow" class="arrow-icon">
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="project-card">
+                            <div class="card-content">
+                                <h3>Palestra sobre Segurança Digital</h3>
+                                <div class="card-text">
+                                    <p>Palestrei para toda empresa sobre segurança digital, explicando de forma didática
+                                        e aplicando a exemplos reais para maior fixação do aprendizado. Elaborei ‘papéis
+                                        de trabalho’ e auxiliei na realização de auditoria interna para avaliar
+                                        melhorias pós treinamento.</p>
+                                </div>
+                                <div class="card-tags">
+                                    <span>Versatilidade</span>
+                                    <span>Habilidades comunicativas</span>
+                                    <span>Conhecimento em TI</span>
+                                    <span>Melhoria contínua</span>
+                                    <span>Mentorias e Treinamentos</span>
+                                    <span>Compliance</span>
+                                    <span>Auditorias</span>
+                                </div>
+                            </div>
+                            <!-- Image Carousel for Block 3 -->
+                            <div class="card-image-col">
+                                <div class="carousel" id="carousel-3">
+                                    <div class="carousel-slides">
+                                        <img src="public/highlights/3-1.jpg" alt="Segurança Digital 1" class="active">
+                                        <img src="public/highlights/3-2.jpg" alt="Segurança Digital 2">
+                                        <img src="public/highlights/3-4.jpg" alt="Segurança Digital 3">
+                                    </div>
+                                    <button class="carousel-btn prev"
+                                        onclick="moveCarousel('carousel-3', -1, event)">&#10094;</button>
+                                    <button class="carousel-btn next"
+                                        onclick="moveCarousel('carousel-3', 1, event)">&#10095;</button>
+                                    <div class="carousel-indicators">
+                                        <span class="dot active" onclick="setSlide('carousel-3', 0, event)"></span>
+                                        <span class="dot" onclick="setSlide('carousel-3', 1, event)"></span>
+                                        <span class="dot" onclick="setSlide('carousel-3', 2, event)"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-footer">
+                                <span>Ler mais</span>
+                                <img src="public/arrow.svg" alt="arrow" class="arrow-icon">
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="project-card">
+                            <div class="card-content">
+                                <h3>Construção de Portal Empresarial</h3>
+                                <div class="card-text">
+                                    <p>Construí através de ferramentas low-code um hub para colaboradores, centralizando
+                                        nele as comunicações organizacionais e adicionando funções de valor para a
+                                        organização empresarial. Tudo foi feito com custo zero de implantação e
+                                        manutenção para a empresa.</p>
+                                </div>
+                                <div class="card-tags">
+                                    <span>Processos</span>
+                                    <span>Organização empresarial</span>
+                                    <span>Transformação digital e automação</span>
+                                    <span>Melhoria contínua</span>
+                                    <span>Eficiência operacional</span>
+                                    <span>Redução de despesas</span>
+                                </div>
+                            </div>
+                            <!-- Single Image for Block 4 -->
+                            <div class="card-image-col">
+                                <img src="public/highlights/4-1.png" alt="Portal Empresarial"
+                                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                            </div>
+
+                            <div class="card-footer">
+                                <span>Ler mais</span>
+                                <img src="public/arrow.svg" alt="arrow" class="arrow-icon">
+                            </div>
+                        </div>
+
+                        <!-- Card 5 -->
+                        <div class="project-card">
+                            <div class="card-content">
+                                <h3>Palestra sobre Prevenção a Lavagem de Dinheiro</h3>
+                                <div class="card-text">
+                                    <p>Palestrei para setores-alvo internos e também convidados externos sobre
+                                        “Prevenção a Lavagem de Dinheiro no Setor de Jogos e Loterias”, expandindo os
+                                        conhecimentos das equipes e fortalecendo nossas barreiras contra fraudes,
+                                        gerando evidências para solicitação de selos ISO.</p>
+                                </div>
+                                <div class="card-tags">
+                                    <span>Melhoria contínua</span>
+                                    <span>Treinamentos</span>
+                                    <span>Governança</span>
+                                    <span>Compliance</span>
+                                    <span>Versatilidade</span>
+                                    <span>Habilidades comunicativas</span>
+                                    <span>Financeiro</span>
+                                </div>
+                            </div>
+                            <!-- Image Carousel for Block 5 -->
+                            <div class="card-image-col">
+                                <div class="carousel" id="carousel-5">
+                                    <div class="carousel-slides">
+                                        <img src="public/highlights/5-1.jpg" alt="Lavagem de Dinheiro 1" class="active">
+                                        <img src="public/highlights/5-2.jpg" alt="Lavagem de Dinheiro 2">
+                                    </div>
+                                    <button class="carousel-btn prev"
+                                        onclick="moveCarousel('carousel-5', -1, event)">&#10094;</button>
+                                    <button class="carousel-btn next"
+                                        onclick="moveCarousel('carousel-5', 1, event)">&#10095;</button>
+                                    <div class="carousel-indicators">
+                                        <span class="dot active" onclick="setSlide('carousel-5', 0, event)"></span>
+                                        <span class="dot" onclick="setSlide('carousel-5', 1, event)"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-footer">
+                                <span>Ler mais</span>
+                                <img src="public/arrow.svg" alt="arrow" class="arrow-icon">
+                            </div>
+                        </div>
+
+                        <!-- Card 6 -->
+                        <div class="project-card">
+                            <div class="card-content">
+                                <h3>Mentoria de Novo Colaborador</h3>
+                                <div class="card-text">
+                                    <p>Auxiliei na mentoria de estagiário, fomentando sua contextualização nos
+                                        pormenores da operação e do fluxo de trabalho, de forma a acelerar sua
+                                        preparação para atuar diretamente no dia a dia da empresa.</p>
+                                </div>
+                                <div class="card-tags">
+                                    <span>Mentorias e treinamentos</span>
+                                    <span>Versatilidade</span>
+                                    <span>Habilidades comunicativas</span>
+                                    <span>Fluxos de trabalho</span>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <span>Ler mais</span>
+                                <img src="public/arrow.svg" alt="arrow" class="arrow-icon">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-image exp-bg"></div>
+            </div>
+        </section>
+
+        <!-- Tab 4: O Que Busco -->
+        <section class="accordion-item" id="tab-what-i-seek">
+            <div class="accordion-header">
+                <h2>O QUE BUSCO</h2>
+            </div>
+            <div class="accordion-content">
+                <div class="content-wrapper">
+                    <div class="section-title">
+                        <h1>O Que Busco</h1>
+                    </div>
+                    <div class="seek-content">
+                        <p>Desejo atuar em um ambiente que valorize a <strong>autonomia</strong> e a
+                            <strong>transparência</strong>, com uma <strong>gestão colaborativa</strong> que me permita
+                            aplicar minha experiência em gestão, financeiro e processos para <strong>otimizar
+                                recursos</strong> e trazer <strong>melhorias de KPIs</strong>.
+                        </p>
+                        <p>Procuro uma empresa que ofereça <strong>estabilidade</strong>, que preze pelo
+                            <strong>bem-estar</strong> e que ofereça um <strong>plano de carreira</strong> sólido,
+                            permitindo um <strong>crescimento mútuo e sustentável</strong> com <strong>aprendizado
+                                contínuo</strong>.
+                        </p>
+                    </div>
+                </div>
+                <!-- Background can be added later -->
+                <div class="bg-image seek-bg"></div>
+            </div>
+        </section>
+
+        <!-- Tab 5: Currículo -->
+        <section class="accordion-item" id="tab-curriculum">
+            <div class="accordion-header">
+                <h2>MEU CURRÍCULO</h2>
+            </div>
+            <div class="accordion-content">
+                <div class="content-wrapper" style="position: relative;">
+                    <div class="section-title">
+                        <h1>Meu Currículo</h1>
+                        <a href="public/curriculum/Currículo - GABRIEL NASCIMENTO.pdf"
+                            download="Currículo - GABRIEL NASCIMENTO.pdf" class="download-btn"
+                            onclick="showThankYouModal()">
+                            BAIXAR CURRÍCULO
+                        </a>
+                    </div>
+
+                    <div class="curriculum-embed-container">
+                        <img src="public/curriculum/Curriculum.svg" alt="Currículo" class="curriculum-svg">
+                    </div>
+                </div>
+                <!-- Background Image Layer -->
+                <div class="bg-image about-bg"></div>
+            </div>
+        </section>
+
+        <!-- Thank You Modal -->
+        <div id="thank-you-modal" class="modal-overlay">
+            <div class="modal-content" style="max-width: 400px; text-align: center;">
+                <button class="modal-close" onclick="closeThankYouModal()">&times;</button>
+                <div class="modal-body">
+                    <h2 style="color: #64ffda; margin-bottom: 1rem;">Obrigado!</h2>
+                    <p style="color: #b0c4de;">O download do currículo iniciou.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
