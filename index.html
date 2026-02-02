@@ -45,10 +45,22 @@
                                 utilizando metodologias de mapeamento e ferramentas BPMS para garantir conformidade,
                                 segurança e eficiência operacional.
                             </p>
-                            <button id="read-more-btn" class="read-more-btn">Minha trajetória</button>
+                            <div class="buttons-container">
+                                <button id="read-more-btn" class="read-more-btn">Minha trajetória</button>
+                                <a href="public/curriculum/Curriculo GABRIEL NASCIMENTO.pdf"
+                                    download="Curriculo GABRIEL NASCIMENTO.pdf" class="download-btn-about"
+                                    onclick="showThankYouModal()">
+                                    BAIXAR CURRÍCULO
+                                </a>
+                            </div>
                         </div>
                         <div class="photo-block">
-                            <img src="public/foto.png" alt="Gabriel">
+                            <picture>
+                                <source
+                                    media="(max-width: 900px), (max-width: 1200px) and (min-height: 800px), (max-aspect-ratio: 1/1)"
+                                    srcset="public/foto/eu5x4.png">
+                                <img src="public/foto/eu3x5.png" alt="Gabriel">
+                            </picture>
                         </div>
                     </div>
                     <!-- Mid-section removed as requested -->
@@ -96,8 +108,9 @@
                         anos. Sou Bacharel em Administração pela UNEB (2019).</p>
 
                     <p>Iniciei minha carreira ainda aos 17 anos como atendente de loja varejista, tendo em 2019 recebido
-                        a minha primeira oportunidade de trabalho em Salvador que me levou a mudar para a capital. Nessa
-                        empresa, comecei como <strong>Assistente Administrativo e Financeiro</strong>, sempre lidando
+                        a minha primeira oportunidade de trabalho em Salvador na empresa Amplo ARJ, o que me levou a
+                        mudar para a capital. Nela, comecei como <strong>Assistente Administrativo e
+                            Financeiro</strong>, sempre lidando
                         com pessoas diversas e demandas desafiadoras. Graças a minha performance e reconhecimento da
                         liderança, recebi promoções que me levaram ao segundo cargo de maior responsabilidade do
                         escritório.</p>
@@ -145,26 +158,76 @@
                         </div>
 
                         <div class="timeline">
-                            <!-- 2017 -->
+                            <!-- 2025 -->
                             <div class="timeline-item">
-                                <div class="year">2017</div>
+                                <div class="year">2025</div>
                                 <div class="cert-list">
                                     <div class="cert-item">
-                                        <h3>Inglês Avançado</h3>
-                                        <h4>CCAA</h4>
-                                        <p>Fluência em conversação, leitura e escrita.</p>
+                                        <h3>Especialização em Fusion Platform</h3>
+                                        <h4>Neomind University</h4>
+                                        <p>Conhecimento técnico avançado em Fusion Platform para a gestão de processos
+                                            BPM.
+                                        </p>
                                         <div class="cert-preview">
-                                            <img src="public/certificados/ccaa-1.png" alt="Certificado CCAA">
+                                            <img src="public/certificados/fusion-1.png" alt="Certificado Fusion">
+                                        </div>
+                                    </div>
+                                    <div class="cert-item">
+                                        <h3>Mapeamento de Processos</h3>
+                                        <h4>UDEMY</h4>
+                                        <p>Capacitação técnica em Metodologia BPM para o mapeamento de processos
+                                            (AS-IS),
+                                            identificação de gargalos e desenho de fluxogramas.</p>
+                                        <div class="cert-preview">
+                                            <img src="public/certificados/mapeamento-de-processos-1.png"
+                                                alt="Certificado Mapeamento de Processos">
+                                        </div>
+                                    </div>
+                                    <div class="cert-item">
+                                        <h3>Imersão Front-End</h3>
+                                        <h4>Alura</h4>
+                                        <p>Desenvolvimento de habilidades em HTML, CSS e JavaScript.</p>
+                                        <div class="cert-preview">
+                                            <img src="public/certificados/imersao-front-end-1.png"
+                                                alt="Certificado Imersão Front-End">
+                                        </div>
+                                    </div>
+                                    <div class="cert-item">
+                                        <h3>HTML e CSS</h3>
+                                        <h4>Alura</h4>
+                                        <p>Ambientes de Desenvolvimento, Estrutura de Arquivos e Tags. Conceitos de
+                                            Front-end.</p>
+                                        <div class="cert-preview">
+                                            <img src="public/certificados/html-e-css-1.png"
+                                                alt="Certificado HTML e CSS">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2024 -->
+                            <div class="timeline-item">
+                                <div class="year">2024</div>
+                                <div class="cert-list">
+                                    <div class="cert-item">
+                                        <h3>Ética e Integridade para Micro e Pequenas Empresas</h3>
+                                        <h4>SEBRAE</h4>
+                                        <p>Fundamentos da ética nos negócios e a importância da integridade empresarial
+                                            para
+                                            o sucesso sustentável das organizações.</p>
+                                        <div class="cert-preview">
+                                            <img src="public/certificados/etica-e-integridade-1.png"
+                                                alt="Certificado Ética">
                                         </div>
                                     </div>
 
                                     <div class="cert-item">
-                                        <h3>Standard English Course</h3>
-                                        <h4>Stafford House Toronto</h4>
-                                        <p>Aprimoramento em conversação e expansão de vocabulário.</p>
+                                        <h3>Compliance sob Medida</h3>
+                                        <h4>SEBRAE</h4>
+                                        <p>Conhecimentos gerais sobre Compliance e suas aplicações práticas.</p>
                                         <div class="cert-preview">
-                                            <img src="public/certificados/Stafford House-1.png"
-                                                alt="Certificado Stafford House">
+                                            <img src="public/certificados/compliance-1.png"
+                                                alt="Certificado Compliance">
                                         </div>
                                     </div>
                                 </div>
@@ -185,76 +248,26 @@
                                 </div>
                             </div>
 
-                            <!-- 2024 -->
+                            <!-- 2017 -->
                             <div class="timeline-item">
-                                <div class="year">2024</div>
+                                <div class="year">2017</div>
                                 <div class="cert-list">
                                     <div class="cert-item">
-                                        <h3>Compliance sob Medida</h3>
-                                        <h4>SEBRAE</h4>
-                                        <p>Conhecimentos gerais sobre Compliance e suas aplicações práticas.</p>
+                                        <h3>Inglês Avançado</h3>
+                                        <h4>CCAA</h4>
+                                        <p>Fluência em conversação, leitura e escrita.</p>
                                         <div class="cert-preview">
-                                            <img src="public/certificados/compliance-1.png"
-                                                alt="Certificado Compliance">
+                                            <img src="public/certificados/ccaa-1.png" alt="Certificado CCAA">
                                         </div>
                                     </div>
 
                                     <div class="cert-item">
-                                        <h3>Ética e Integridade para Micro e Pequenas Empresas</h3>
-                                        <h4>SEBRAE</h4>
-                                        <p>Fundamentos da ética nos negócios e a importância da integridade empresarial
-                                            para
-                                            o sucesso sustentável das organizações.</p>
+                                        <h3>Standard English Course</h3>
+                                        <h4>Stafford House Toronto</h4>
+                                        <p>Aprimoramento em conversação e expansão de vocabulário.</p>
                                         <div class="cert-preview">
-                                            <img src="public/certificados/etica-e-integridade-1.png"
-                                                alt="Certificado Ética">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- 2025 -->
-                            <div class="timeline-item">
-                                <div class="year">2025</div>
-                                <div class="cert-list">
-                                    <div class="cert-item">
-                                        <h3>HTML e CSS</h3>
-                                        <h4>Alura</h4>
-                                        <p>Ambientes de Desenvolvimento, Estrutura de Arquivos e Tags. Conceitos de
-                                            Front-end.</p>
-                                        <div class="cert-preview">
-                                            <img src="public/certificados/html-e-css-1.png"
-                                                alt="Certificado HTML e CSS">
-                                        </div>
-                                    </div>
-                                    <div class="cert-item">
-                                        <h3>Imersão Front-End</h3>
-                                        <h4>Alura</h4>
-                                        <p>Desenvolvimento de habilidades em HTML, CSS e JavaScript.</p>
-                                        <div class="cert-preview">
-                                            <img src="public/certificados/imersao-front-end-1.png"
-                                                alt="Certificado Imersão Front-End">
-                                        </div>
-                                    </div>
-                                    <div class="cert-item">
-                                        <h3>Mapeamento de Processos</h3>
-                                        <h4>UDEMY</h4>
-                                        <p>Capacitação técnica em Metodologia BPM para o mapeamento de processos
-                                            (AS-IS),
-                                            identificação de gargalos e desenho de fluxogramas.</p>
-                                        <div class="cert-preview">
-                                            <img src="public/certificados/mapeamento-de-processos-1.png"
-                                                alt="Certificado Mapeamento de Processos">
-                                        </div>
-                                    </div>
-                                    <div class="cert-item">
-                                        <h3>Especialização em Fusion Platform</h3>
-                                        <h4>Neomind University</h4>
-                                        <p>Conhecimento técnico avançado em Fusion Platform para a gestão de processos
-                                            BPM.
-                                        </p>
-                                        <div class="cert-preview">
-                                            <img src="public/certificados/fusion-1.png" alt="Certificado Fusion">
+                                            <img src="public/certificados/Stafford House-1.png"
+                                                alt="Certificado Stafford House">
                                         </div>
                                     </div>
                                 </div>
@@ -292,11 +305,11 @@
                                     <li><strong>Modelagem de Processos</strong> Mapeamento AS-IS/TO-BE e redesenho de
                                         fluxos de trabalho.</li>
                                     <li><strong>Transformação Digital</strong> Implantação de ferramentas BPMS e
-                                        automação de processos financeiros.</li>
+                                        automação de processos financeiros e operacionais.</li>
                                     <li><strong>Governança & Compliance</strong> Padronização de recursos, afinidade com
-                                        auditorias e foco em controle interno.</li>
+                                        auditorias e foco em controle interno e conformidade.</li>
                                     <li><strong>Otimização de Recursos</strong> Foco em eficiência operacional e redução
-                                        de gargalos.</li>
+                                        de gargalos e desperdícios, gerando economia financeira.</li>
                                 </ul>
                             </div>
 
@@ -346,8 +359,11 @@
                             <div class="card-content">
                                 <h3>Construção de Núcleo Financeiro</h3>
                                 <div class="card-text">
-                                    <p>Auxiliei na construção do novo Núcleo Financeiro, treinando colaboradores quanto
+                                    <p>Auxiliei na construção do novo Núcleo Financeiro. Treinei colaboradores quanto
                                         a suas demandas, boas práticas, técnicas e sistemas de gestão.</p>
+                                    <p>Mesmo após minha mudança de atuação dentro da empresa, minhas soluções e boas
+                                        práticas ensinadas foram mantidas em prática, impactando positivamente a
+                                        eficiência da equipe.</p>
                                 </div>
                                 <div class="card-tags">
                                     <span>Mentorias e treinamentos</span>
@@ -370,7 +386,7 @@
                                 <div class="card-text">
                                     <p>Assumi a posição de Analista de Processos. Implantei a ferramenta de gestão BPM
                                         Neomind Fusion na organização. Treinei todos os colaboradores na utilização da
-                                        ferramenta e através dela fui capaz de construir fluxos complexos de processos
+                                        ferramenta e através dela construí fluxos complexos de processos
                                         com focos em:</p>
                                     <ul>
                                         <li>Elaboração e revisão contratual</li>
@@ -411,9 +427,11 @@
                                 <h3>Palestra sobre Segurança Digital</h3>
                                 <div class="card-text">
                                     <p>Palestrei para toda empresa sobre segurança digital, explicando de forma didática
-                                        e aplicando a exemplos reais para maior fixação do aprendizado. Elaborei ‘papéis
-                                        de trabalho’ e auxiliei na realização de auditoria interna para avaliar
-                                        melhorias pós treinamento.</p>
+                                        e aplicando a exemplos reais para maior fixação do aprendizado. Posteriormente,
+                                        elaborei "papéis
+                                        de trabalho" e realizei auditoria interna para avaliar
+                                        melhorias pós-treinamento e reforçar o aprendizado e implantação de boas
+                                        práticas.</p>
                                 </div>
                                 <div class="card-tags">
                                     <span>Versatilidade</span>
@@ -456,10 +474,11 @@
                             <div class="card-content">
                                 <h3>Construção de Portal Empresarial</h3>
                                 <div class="card-text">
-                                    <p>Construí através de ferramentas low-code um hub para colaboradores, centralizando
-                                        nele as comunicações organizacionais e adicionando funções de valor para a
-                                        organização empresarial. Tudo foi feito com custo zero de implantação e
-                                        manutenção para a empresa.</p>
+                                    <p>Construí através de ferramentas low-code gratuitas um hub para colaboradores,
+                                        centralizando
+                                        nele as comunicações organizacionais e adicionando funcionalidades que agregaram
+                                        valor a rotina do escritório. Impactei gerando redução de custos de implantação
+                                        e manutenção, além de aumentar a produtividade e organização.</p>
                                 </div>
                                 <div class="card-tags">
                                     <span>Processos</span>
@@ -488,9 +507,10 @@
                                 <h3>Palestra sobre Prevenção a Lavagem de Dinheiro</h3>
                                 <div class="card-text">
                                     <p>Palestrei para setores-alvo internos e também convidados externos sobre
-                                        “Prevenção a Lavagem de Dinheiro no Setor de Jogos e Loterias”, expandindo os
-                                        conhecimentos das equipes e fortalecendo nossas barreiras contra fraudes,
-                                        gerando evidências para solicitação de selos ISO.</p>
+                                        “Prevenção a Lavagem de Dinheiro no Setor de Jogos e Loterias”, impactando
+                                        positivamente no conhecimento da equipe sobre o tema e
+                                        fortalecendo as barreiras da empresa contra fraudes, além de gerar evidências
+                                        para solicitação de Certificações ISO.</p>
                                 </div>
                                 <div class="card-tags">
                                     <span>Melhoria contínua</span>
@@ -574,6 +594,11 @@
                             permitindo um <strong>crescimento mútuo e sustentável</strong> com <strong>aprendizado
                                 contínuo</strong>.
                         </p>
+                        <p>Estou disponível para atuar no formato <strong>presencial/híbrido</strong> em
+                            <strong>Salvador -
+                                Bahia</strong> (e região metropolitana) e <strong>remotamente</strong> para
+                            <strong>qualquer lugar</strong>.
+                        </p>
                     </div>
                 </div>
                 <!-- Background can be added later -->
@@ -590,15 +615,17 @@
                 <div class="content-wrapper" style="position: relative;">
                     <div class="section-title">
                         <h1>Meu Currículo</h1>
-                        <a href="public/curriculum/Currículo - GABRIEL NASCIMENTO.pdf"
-                            download="Currículo - GABRIEL NASCIMENTO.pdf" class="download-btn"
+                        <a href="public/curriculum/Curriculo GABRIEL NASCIMENTO.pdf"
+                            download="Curriculo GABRIEL NASCIMENTO.pdf" class="download-btn"
                             onclick="showThankYouModal()">
                             BAIXAR CURRÍCULO
                         </a>
                     </div>
 
                     <div class="curriculum-embed-container">
-                        <img src="public/curriculum/Curriculum.svg" alt="Currículo" class="curriculum-svg">
+                        <iframe src="public/curriculum/Curriculo GABRIEL NASCIMENTO.pdf#zoom=page-width"
+                            class="curriculum-iframe" width="100%" height="100%"
+                            style="border: none; min-height: 80vh;"></iframe>
                     </div>
                 </div>
                 <!-- Background Image Layer -->

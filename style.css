@@ -21,9 +21,11 @@ body {
     background-color: var(--color-dark);
     color: var(--color-text);
     overflow-x: hidden;
+    /* Prevent horizontal scroll */
     overflow-y: hidden;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
+    /* Use % to avoid scrollbar width issues */
 }
 
 /* Accordion Container */
@@ -161,21 +163,39 @@ body {
     z-index: 2;
 }
 
-/* --- About Section Specifics --- */
+/* About Wrapper Specifics for Full Height */
+.about-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    /* Prevent internal scroll if possible */
+    padding: 2vh 4rem !important;
+    /* Dynamic padding */
+}
+
 .top-section {
+    flex: 1;
+    /* Take available space */
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
+    /* Center vertically content */
     gap: 2rem;
-    margin-bottom: 0;
+    margin-bottom: 1vh;
+    min-height: 0;
+    /* Allow shrinking */
 }
 
 .hero-text {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    gap: 0;
+    justify-content: center;
+    gap: 2vh;
+    /* Reduced gap slightly to fit more text */
+    height: 100%;
 }
 
 .hero-text h4 {
@@ -183,64 +203,103 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 600;
-    font-size: clamp(2rem, 3.2vw, 3.5rem);
+    font-size: clamp(1.8rem, 3.9vh, 4rem);
+    /* Increased size significantly */
     line-height: 1.2;
     max-width: 100%;
     margin-bottom: 0;
 }
 
 .hero-text h1 {
-    font-size: clamp(2.5rem, 3.4vw, 4.2rem);
+    font-size: clamp(1.8rem, 3.5vh, 3.5rem);
+    /* Reduced slightly to ensure it fits better */
     line-height: 1.1;
     background: linear-gradient(to right, #a5d6c8, #ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     opacity: 0.9;
     width: 100%;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.5vh;
     padding-top: 0;
+    max-width: 100%;
+    /* Occupy full available width as requested */
 }
 
 /* Photo Block */
 .photo-block {
-    flex: 0 0 300px;
-    height: 60vh;
-    max-height: 550px;
-    min-height: 400px;
+    flex: 0 1 auto;
+    width: auto;
+    height: auto;
+    max-height: 55vh;
+    /* STRICT height limit */
+    min-height: 250px;
+    /* Prevent being crushed too small */
+    flex-shrink: 1;
+    /* Allow shrinking */
+    max-width: 35vw;
+    /* STRICT width limit */
+    aspect-ratio: 3 / 5;
+    /* User requested 3x5 on web */
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    overflow: hidden;
     border: 2px solid #64ffda;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    margin-right: -2rem;
-    margin-top: 1rem;
+    margin: 0;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    overflow: hidden;
+    /* Ensure rounded corners apply correctly */
 }
 
 .photo-block img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    /* Strictly prevent cropping/zoom */
+    border-radius: 10px;
 }
 
 .description {
-    font-size: 1.15rem;
-    line-height: 1.45;
+    font-size: clamp(0.95rem, 1.6vh, 1.3rem);
+    /* Slightly reduced logic */
+    line-height: 1.5;
     max-width: 100%;
     color: #c4ccd6;
     margin-top: 0;
-    margin-bottom: 0.3rem;
-    text-align: justify;
+    margin-bottom: 1.5vh;
+    text-align: justify !important;
+    /* Always justify */
     flex-grow: 0;
 }
 
-/* Button "Minha Trajetória" */
+/* Cleaned up CSS syntax error here */
+
+/* Button "Minha Trajetória" & "Baixar Currículo" */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    /* Center buttons relative to container */
+    gap: 2rem;
+    /* Increased space between buttons */
+    margin: 2vh auto 2vh auto;
+    /* Adjusted margins */
+    width: 100%;
+}
+
+/* Cleaned up duplicate styling */
+
 .read-more-btn {
-    display: block;
+    display: inline-block;
     background: transparent;
     border: 1px solid #64ffda;
     color: #64ffda;
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
+    padding: 0.6em 1.5em;
+    /* Scalable padding */
+    font-size: clamp(0.9rem, 1.5vh, 1rem);
+    /* Responsive font */
     font-family: inherit;
     font-weight: 600;
     border-radius: 4px;
@@ -249,12 +308,39 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     width: fit-content;
+    margin: 0;
+    /* Margin handled by container gap */
+}
 
-    /* Alignment */
-    align-self: center;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-    margin-right: 0;
+.download-btn-about {
+    display: inline-block;
+    background: rgba(100, 255, 218, 0.1);
+    /* Subtle background to differentiate */
+    border: 1px solid #64ffda;
+    color: #64ffda;
+    padding: 0.6em 1.5em;
+    /* Scalable padding matching read-more */
+    font-size: clamp(0.9rem, 1.5vh, 1rem);
+    /* Responsive font */
+    font-family: inherit;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    /* Link reset */
+    width: fit-content;
+    line-height: normal;
+    /* Ensure vertical alignment */
+}
+
+.download-btn-about:hover {
+    background: rgba(100, 255, 218, 0.2);
+    box-shadow: 0 4px 12px rgba(100, 255, 218, 0.2);
+    color: #fff;
+    transform: translateY(-2px);
 }
 
 .read-more-btn:hover {
@@ -269,17 +355,26 @@ body {
     justify-content: space-between;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 1rem;
+    width: 100%;
+    margin-top: auto;
+    /* Push footer to bottom */
+    flex-shrink: 0;
+    /* Never shrink footer */
 }
 
 .contact-block {
     text-align: right;
+    /* Force right alignment */
+    flex: 1;
 }
 
 .hobbies-block {
     text-align: left;
+    /* Force left alignment */
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.5rem 2rem;
+    flex: 1;
 }
 
 .hobby-item {
@@ -303,16 +398,16 @@ body {
 
 .contact-block h3,
 .hobbies-block h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: clamp(1.2rem, 2.5vh, 1.5rem);
+    margin-bottom: 0.5vh;
     color: #fff;
     line-height: 1.2;
 }
 
 .contact-block p {
     color: #8892b0;
-    margin-bottom: 0.3rem;
-    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+    font-size: clamp(0.9rem, 1.8vh, 1.1rem);
 }
 
 .contact-block a {
@@ -372,6 +467,15 @@ body {
     .split-layout {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    .split-col.left-col {
+        border-right: none;
+        padding-right: 0;
+    }
+
+    .split-col.right-col {
+        padding-left: 0;
     }
 }
 
@@ -651,74 +755,110 @@ body {
 }
 
 /* Expansion Logic */
-.projects-grid:hover .project-card:not(:hover) {
-    opacity: 0.2;
-    filter: blur(2px);
-    transition: opacity 0.3s, filter 0.3s;
+/* Hover Expansion Logic - DESKTOP ONLY (min-width: 901px) */
+/* Prevents hover from triggering on mobile devices */
+@media (min-width: 901px) {
+    .projects-grid:hover .project-card:not(:hover) {
+        opacity: 0.2;
+        filter: blur(2px);
+        transition: opacity 0.3s, filter 0.3s;
+    }
+
+    .project-card:hover {
+        position: absolute;
+        z-index: 1000;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        margin: 0 !important;
+        background: #0d2d24;
+        border: 2px solid #64ffda;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.95);
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 2rem;
+        padding: 2rem;
+        padding-bottom: 2rem;
+        transform: none;
+    }
+
+    /* Force stacked layout when card is expanded but screen is narrow/tall */
+    @media (max-width: 1100px),
+    (max-aspect-ratio: 1/1) {
+        .project-card:hover {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr;
+            gap: 1rem;
+            overflow-y: auto;
+        }
+
+        .project-card:hover .card-content {
+            order: 0;
+            max-height: none;
+        }
+
+        .project-card:hover .card-image-col {
+            order: 1;
+            height: auto;
+            min-height: 300px;
+        }
+    }
+
+    .project-card:hover h3 {
+        font-size: 1.4rem;
+    }
+
+    .project-card:hover .card-text {
+        -webkit-line-clamp: unset;
+        overflow: visible;
+        flex: 1;
+    }
+
+    .project-card:hover .card-tags {
+        display: flex;
+        margin-top: 1rem;
+        padding-top: 0;
+        opacity: 1;
+        animation: none;
+    }
+
+    .project-card:hover .card-footer {
+        display: none;
+    }
+
+    .project-card:hover .card-image-col {
+        order: 2;
+        display: block;
+        height: 100%;
+    }
+
+    .project-card:hover .card-content {
+        order: 1;
+        overflow-y: auto;
+        padding-right: 0.5rem;
+        max-height: 100%;
+    }
+
+    .project-card:hover .card-content::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .project-card:hover .card-content::-webkit-scrollbar-thumb {
+        background-color: rgba(100, 255, 218, 0.3);
+        border-radius: 4px;
+    }
 }
 
-.project-card:hover {
-    position: absolute;
-    z-index: 1000;
+.card-image-col img,
+.carousel-slides img {
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
-    margin: 0 !important;
-    background: #0d2d24;
-    border: 2px solid #64ffda;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.95);
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 2rem;
-    padding: 2rem;
-    /* Adjusted padding */
-    padding-bottom: 2rem;
-    transform: none;
-}
-
-.project-card:hover h3 {
-    font-size: 1.4rem;
-}
-
-.project-card:hover .card-text {
-    -webkit-line-clamp: unset;
-    overflow: visible;
-    flex: 1;
-}
-
-.project-card:hover .card-tags {
-    display: flex;
-    margin-top: 1rem;
-    padding-top: 0;
-    opacity: 1;
-    animation: none;
-}
-
-.project-card:hover .card-footer {
-    display: none;
-}
-
-.project-card:hover .card-image-col {
-    order: 2;
-    display: block;
-    height: 100%;
-}
-
-.project-card:hover .card-content {
-    order: 1;
-    overflow-y: auto;
-    padding-right: 0.5rem;
-    max-height: 100%;
-}
-
-.project-card:hover .card-content::-webkit-scrollbar {
-    width: 6px;
-}
-
-.project-card:hover .card-content::-webkit-scrollbar-thumb {
-    background-color: rgba(100, 255, 218, 0.3);
-    border-radius: 4px;
+    object-fit: contain;
+    /* Ensure full image is visible */
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    /* Dark background for letterboxing */
 }
 
 /* Skills List */
@@ -752,7 +892,7 @@ body {
 
 .skill-category h3 {
     color: #64ffda;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     margin-bottom: 1rem;
     border-bottom: 1px solid rgba(100, 255, 218, 0.2);
     padding-bottom: 0.5rem;
@@ -765,7 +905,7 @@ body {
 }
 
 .skill-category li {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     color: #b0c4de;
     margin-bottom: 1.3rem;
     line-height: 1.5;
@@ -788,7 +928,7 @@ body {
 .skill-category strong {
     color: #e6f1ff;
     font-weight: 600;
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     margin-bottom: 0.15rem;
     display: block;
 }
@@ -820,12 +960,17 @@ body {
 }
 
 .curriculum-embed-container {
-    width: 85%;
-    height: 80vh;
-    overflow: auto;
-    margin-top: 0.5rem;
+    width: 100%;
+    /* Occupy full container width */
+    height: 85vh;
+    /* Increase height for better view */
+    overflow-y: auto;
+    /* Allow vertical scroll */
+    overflow-x: hidden;
+    /* No horizontal scroll */
+    margin-top: 1rem;
     margin-bottom: 0;
-    margin: 0.5rem auto 0 auto;
+    margin: 1rem auto 0 auto;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     background: rgba(0, 0, 0, 0.2);
@@ -973,15 +1118,16 @@ body {
     font-weight: 600;
 }
 
-.modal-content::-webkit-scrollbar {
+/* Moved scrollbar styles to .modal-body where scrolling happens */
+.modal-body::-webkit-scrollbar {
     width: 8px;
 }
 
-.modal-content::-webkit-scrollbar-track {
+.modal-body::-webkit-scrollbar-track {
     background: #05161A;
 }
 
-.modal-content::-webkit-scrollbar-thumb {
+.modal-body::-webkit-scrollbar-thumb {
     background: #145E46;
     border-radius: 4px;
 }
@@ -1073,15 +1219,17 @@ body {
 
 /* Seek Content Styling */
 .seek-content {
-    max-width: 900px;
+    max-width: 1200px;
+    /* Increased 25% from 900px */
     margin-top: 2rem;
 }
 
 .seek-content p {
-    font-size: 1.4rem;
-    line-height: 1.6;
+    font-size: clamp(1.2rem, 2.5vh, 2.5rem);
+    /* Adjusted for desktop responsiveness */
+    line-height: 1.5;
     color: #b0c4de;
-    margin-bottom: 2rem;
+    margin-bottom: 2vh;
     text-align: justify;
 }
 
@@ -1093,13 +1241,18 @@ body {
 /* Responsive & Mobile Ready */
 @media (max-width: 900px) {
     body {
-        overflow: auto;
+        overflow-y: auto;
+        /* Allow vertical scroll on mobile */
+        overflow-x: hidden !important;
+        /* Force no horizontal scroll */
         height: auto;
+        width: 100%;
     }
 
     .accordion-container {
-        flexDirection: column;
+        flex-direction: column;
         height: auto;
+        min-height: 100vh;
     }
 
     .accordion-item {
@@ -1153,9 +1306,9 @@ body {
     }
 
     .top-section {
-        flexDirection: column-reverse;
+        flex-direction: column-reverse;
         gap: 2rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
     }
 
     .hero-text,
@@ -1172,52 +1325,501 @@ body {
     }
 
     .photo-block {
-        width: 100%;
-        max-width: 300px;
+        width: 70%;
+        max-width: 320px;
         height: auto;
-        aspect-ratio: 3/4;
+        aspect-ratio: 5 / 4;
+        /* Force 5x4 landscape ratio on mobile */
         margin: 0 auto;
+        flex: 0 0 auto;
+        overflow: hidden;
+        /* Ensure rounded corners clip properly */
+    }
+
+    .photo-block img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain !important;
+        /* Strictly prevent cropping/zoom */
+    }
+
+    /* Reset About Wrapper for Mobile Scroll */
+    .about-wrapper {
+        height: auto;
+        display: block;
+        overflow: visible;
+        padding: 2rem 1.5rem !important;
     }
 
     .bottom-section {
-        justify-content: flex-start;
-        text-align: left;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 0.5rem;
+        flex-wrap: nowrap;
     }
 
     .contact-block {
-        text-align: left;
+        text-align: right;
     }
 
+    .hobbies-block {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    /* Project Cards Mobile Overrides */
     .projects-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
         height: auto;
+        padding-bottom: 2rem;
+    }
+
+    .projects-grid:hover .project-card:not(:hover) {
+        opacity: 1;
+        /* Disable the dimming effect on mobile */
+        filter: none;
+    }
+
+    /* NEUTRALIZE HOVER ON MOBILE */
+    .project-card:not(.mobile-expanded):hover {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+        transform: none !important;
+        box-shadow: none !important;
+        z-index: 1 !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        padding: 1.5rem !important;
+        display: flex !important;
+    }
+
+    .project-card:not(.mobile-expanded):hover .card-text {
+        -webkit-line-clamp: 3 !important;
+        overflow: hidden !important;
+        display: -webkit-box !important;
+    }
+
+    .project-card:not(.mobile-expanded):hover .card-tags,
+    .project-card:not(.mobile-expanded):hover .card-image-col {
+        display: none !important;
+    }
+
+    .project-card:not(.mobile-expanded):hover .card-footer {
+        display: flex !important;
+    }
+
+    .project-card:not(.mobile-expanded):hover h3 {
+        font-size: 1.15rem !important;
+    }
+
+    .project-card:not(.mobile-expanded):hover .card-content {
+        order: unset !important;
+        padding-right: 0 !important;
+        max-height: none !important;
     }
 
     .project-card {
-        aspect-ratio: auto;
-        min-height: 200px;
+        min-height: 250px;
+        /* Enforce min-height to fit content + footer */
         height: auto;
+        aspect-ratio: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        /* Stack from top, don't spread unnecessarily */
+        padding-bottom: 3.5rem;
+        /* Large bottom padding for absolute footer */
+        position: relative;
+        /* Context for absolute footer */
+        overflow: hidden;
     }
 
-    .project-card:hover {
-        position: fixed;
-        top: 10%;
-        left: 5%;
-        width: 90%;
-        height: 80vh;
-        margin: 0 !important;
+    /* Force "Ler mais" to appear in collapsed state */
+    .project-card .card-footer {
+        position: absolute;
+        /* Pin to bottom */
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: flex !important;
+        /* Always show footer in mobile list view */
+        margin-top: 0;
+        padding: 1rem;
+        background: linear-gradient(to top, #0d2d24 80%, transparent);
+        /* Fade effect */
     }
 
-    .download-btn {
-        position: static;
-        display: block;
-        margin: 1rem auto;
-        width: fit-content;
-        float: none;
-        transform: none;
+
+
+    .card-text {
+        -webkit-line-clamp: 3;
+        /* Limit text lines in preview */
+        display: -webkit-box;
+        overflow: hidden;
+        margin-bottom: 0.5rem;
     }
 
-    #tab-curriculum .section-title {
+    .card-tags {
+        display: none;
+        /* Hide tags in preview to save space */
+    }
+
+    .card-image-col {
+        display: none;
+        /* Hide image in preview */
+    }
+
+    .project-card.mobile-expanded::after {
+        display: none;
+    }
+
+    /* Revert seek content font for mobile */
+    .seek-content p {
+        font-size: clamp(0.9rem, 2vh, 1.8rem) !important;
+        margin-bottom: 1.5rem !important;
+    }
+}
+
+/* --- Responsive Grid for Highlights (Narrow Desktop/Tablet) --- */
+@media (max-width: 1200px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        /* switch to 2 cols */
+        overflow-y: auto;
+        /* Allow scroll if needed */
+        height: auto;
+        max-height: 70vh;
+    }
+}
+
+@media (max-width: 700px) {
+    .projects-grid {
+        grid-template-columns: 1fr !important;
+        /* switch to 1 col */
+    }
+}
+
+/* Removed rogue duplicate block */
+
+.project-card.mobile-expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95vw;
+    height: 90vh;
+    /* Maximize height */
+    max-width: none;
+    max-height: none;
+    background: #0d2d24;
+    z-index: 5000;
+    margin: 0 !important;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    border-radius: 16px;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.85);
+    /* Darker backdrop */
+    border: 2px solid #64ffda;
+    justify-content: flex-start;
+    /* Align content to top */
+}
+
+/* Close Button Indicator using sticky positioning */
+.project-card.mobile-expanded::before {
+    content: '\00D7';
+    position: absolute;
+    /* Changed to absolute to pin to corner */
+    top: 10px;
+    right: 10px;
+    float: none;
+    font-size: 2.5rem;
+    color: #64ffda;
+    cursor: pointer;
+    line-height: 0.6;
+    z-index: 5001;
+    background: rgba(13, 45, 36, 0.8);
+    border-radius: 50%;
+    padding: 0.2rem 0.5rem;
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-card.mobile-expanded::after {
+    display: none;
+}
+}
+
+/* --- Responsive Grid for Highlights (Narrow Desktop/Tablet) --- */
+@media (max-width: 1200px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        /* switch to 2 cols */
+        overflow-y: auto;
+        /* Allow scroll if needed */
+        height: auto;
+        max-height: 70vh;
+    }
+}
+
+@media (max-width: 700px) {
+    .projects-grid {
+        grid-template-columns: 1fr !important;
+        /* switch to 1 col */
+    }
+}
+
+/* --- "Square" / Portrait Desktop/Tablet Fix --- */
+/* Trigger mobile layout on wider screens that are vertically constrained OR squarish */
+@media (max-width: 1200px) and (min-height: 800px),
+(max-aspect-ratio: 1/1) {
+    .about-wrapper {
+        overflow-y: auto !important;
+        /* Enable scroll */
+        display: block !important;
+        padding-top: 1.5rem !important;
+    }
+
+    .top-section {
+        flex-direction: column-reverse !important;
+        gap: 1.5rem;
+        align-items: center !important;
+        margin-bottom: 2rem;
+    }
+
+    .hero-text {
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .hero-text h1,
+    .hero-text h4,
+    .description {
         text-align: center;
     }
+
+    .photo-block {
+        width: 60%;
+        max-width: 320px;
+        height: auto;
+        /* aspect-ratio removed to let image dictate height via contain if needed, or keep it flexible */
+        aspect-ratio: 5 / 4 !important;
+        max-height: none;
+        margin-top: 1rem;
+    }
+
+    .photo-block img {
+        object-fit: cover !important;
+        /* Revert to cover for fill on mobile if contain leaves too much gap, or keep contain if preferred. User complaint was overflow. Let's stick to contain but fix overflow first, OR try cover if ratio matches perfectly. Given the user uploaded specific 5x4 image, cover is safer for frame fill if ratio is exact. Let's keep contain as requested earlier but fix the overflow container. */
+        /* Actually, user said 'moldura quebrada', 'foto dando overflow'. This means the image is spilling OUT of the border-radius. Overflow: hidden fixes this. */
+        object-fit: contain !important;
+    }
+
+    .bottom-section {
+        flex-direction: row !important;
+        /* Keep row even in this mode */
+        justify-content: space-between;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .hobbies-block {
+        text-align: left !important;
+        justify-content: flex-start !important;
+    }
+
+    .contact-block {
+        text-align: right !important;
+    }
+
+    .hobby-item {
+        justify-content: flex-start !important;
+    }
+}
+
+/* Flex Reordering for Mobile Expanded */
+.project-card.mobile-expanded {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    /* Reduced global gap */
+}
+
+.project-card.mobile-expanded .card-content {
+    display: contents;
+    /* Allow children to be reordered by parent flex */
+}
+
+.project-card.mobile-expanded h3 {
+    order: 1;
+    font-size: 1.3rem;
+    /* Slightly smaller for compact view */
+    margin-bottom: 0.2rem;
+    margin-top: 0;
+    line-height: 1.2;
+}
+
+.project-card.mobile-expanded .card-text {
+    order: 2;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+    display: block;
+    margin-bottom: 0.5rem;
+    /* Reduced margin */
+    font-size: 1.15rem;
+    /* Increased readability */
+    color: #e6f1f3;
+    /* Brighter text color */
+}
+
+.project-card.mobile-expanded .card-image-col {
+    order: 3;
+    /* Image after text */
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    /* Use full width available */
+    height: auto;
+    aspect-ratio: auto;
+    /* Let image dictate ratio, or keep squarish if needed */
+    max-height: 40vh;
+    /* Limit height to see more tags */
+    margin: 0.5rem 0;
+    /* Vertical spacing */
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.project-card.mobile-expanded .card-tags {
+    order: 4;
+    /* Tags LAST */
+    display: flex;
+    opacity: 1;
+    margin-top: 0.5rem;
+    /* Space after image */
+    margin-bottom: 0;
+    margin-bottom: 0;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    /* Tighter tags */
+}
+
+.project-card.mobile-expanded .card-tags span {
+    font-size: 0.75rem;
+    /* Reduced tag size */
+    padding: 0.3rem 0.6rem;
+}
+
+.project-card.mobile-expanded .card-footer {
+    display: none !important;
+}
+
+.project-card.mobile-expanded .card-image-col img {
+    object-fit: contain;
+    /* Ensure full image visibility */
+    width: 100%;
+    height: 100%;
+    background: none;
+    /* Remove dark backdrop */
+}
+
+.download-btn {
+    position: static;
+    display: block;
+    margin: 1rem auto;
+    width: fit-content;
+    float: none;
+    transform: none;
+}
+
+#tab-curriculum .section-title {
+    text-align: center;
+}
+}
+
+/* --- Large Screens / Desktop Scaling (min-width: 1600px) --- */
+@media (min-width: 1600px) {
+
+    /* Scale Typography Base */
+    html {
+        font-size: 18px;
+        /* Increases all rem values by 12.5% */
+    }
+
+    /* Accordion Navigation - Keep Thin */
+    .accordion-item {
+        flex: 0 0 60px;
+        /* Force default size */
+    }
+
+    .accordion-header {
+        width: 60px;
+        min-width: 60px;
+    }
+
+    .accordion-content {
+        margin-left: 60px;
+    }
+
+    /* Scale Content Spacing */
+    .content-wrapper {
+        padding: 4rem 7rem;
+        max-width: 2000px;
+        /* Prevent excessive stretching on ultra-wide */
+        margin: 0 auto;
+    }
+
+    /* About Section */
+    .hero-text h1 {
+        font-size: 5rem;
+        /* Larger hero title */
+    }
+
+    .hero-text h1 {
+        font-size: 5rem;
+        /* Larger hero title */
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+        gap: 2.5rem;
+    }
+
+    /* Timeline Scaling */
+    .timeline {
+        margin-top: 4rem;
+        padding-left: 3rem;
+    }
+
+    .timeline-item::before {
+        left: -3.6rem;
+        width: 20px;
+        height: 20px;
+    }
+
+    .cert-item::before {
+        left: -3.45rem;
+    }
+
+    .cert-item::before {
+        left: -3.45rem;
+    }
+}
+
+/* Ensure global justification override */
+.description,
+.seek-content p {
+    text-align: justify !important;
 }

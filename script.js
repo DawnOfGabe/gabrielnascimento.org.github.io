@@ -93,19 +93,19 @@ function initCarousels() {
 function showSlide(carouselId, index) {
     const c = carousels[carouselId];
     if (!c) return;
-    
+
     // Wrap around logic
     if (index >= c.slides.length) index = 0;
     if (index < 0) index = c.slides.length - 1;
-    
+
     // Update State
     c.currentSlide = index;
-    
+
     // Update DOM
     c.slides.forEach((slide, i) => {
         slide.classList.toggle('active', i === index);
     });
-    
+
     c.dots.forEach((dot, i) => {
         dot.classList.toggle('active', i === index);
     });
@@ -133,7 +133,7 @@ function showThankYouModal() {
     const modal = document.getElementById('thank-you-modal');
     if (modal) {
         modal.classList.add('active'); // Show modal
-        
+
         // Auto close after 10 seconds
         setTimeout(() => {
             closeThankYouModal();
@@ -147,3 +147,34 @@ function closeThankYouModal() {
         modal.classList.remove('active');
     }
 }
+
+// --- Mobile Project Card Expansion Logic ---
+document.addEventListener('DOMContentLoaded', () => {
+    const projectCards = document.querySelectorAll('.project-card');
+
+    projectCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            // Check if we are on mobile (CSS media query checks width < 900px, 
+            // but for JS strictly strictly speaking we can just toggle the class 
+            // and let CSS handle the visual change)
+            if (window.innerWidth > 900) return;
+
+            // Prevent triggering when clicking carousel buttons which have their own logic
+            if (e.target.closest('.carousel-btn') || e.target.closest('.dot')) {
+                return;
+            }
+
+            const isExpanded = card.classList.contains('mobile-expanded');
+
+            // Close all others
+            document.querySelectorAll('.project-card.mobile-expanded').forEach(c => {
+                c.classList.remove('mobile-expanded');
+            });
+
+            // Toggle current
+            if (!isExpanded) {
+                card.classList.add('mobile-expanded');
+            }
+        });
+    });
+});
