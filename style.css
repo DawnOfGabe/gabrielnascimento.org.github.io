@@ -203,23 +203,23 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 600;
-    font-size: clamp(1.8rem, 3.9vh, 4rem);
-    /* Increased size significantly */
+    font-size: clamp(1.2rem, 3.5vw, 4.5rem);
+    /* Dynamic width-based scaling */
     line-height: 1.2;
     max-width: 100%;
     margin-bottom: 0;
 }
 
 .hero-text h1 {
-    font-size: clamp(1.8rem, 3.5vh, 3.5rem);
-    /* Reduced slightly to ensure it fits better */
+    font-size: clamp(1.2rem, 2.8vw, 4rem);
+    /* Drastic reduction to prevent multi-line overflow */
     line-height: 1.1;
     background: linear-gradient(to right, #a5d6c8, #ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     opacity: 0.9;
     width: 100%;
-    margin-bottom: 0.5vh;
+    margin-bottom: 1vh;
     padding-top: 0;
     max-width: 100%;
     /* Occupy full available width as requested */
@@ -263,13 +263,13 @@ body {
 }
 
 .description {
-    font-size: clamp(0.95rem, 1.6vh, 1.3rem);
-    /* Slightly reduced logic */
-    line-height: 1.5;
+    font-size: clamp(1rem, 1.5vw, 1.6rem);
+    /* Dynamic width-based scaling */
+    line-height: 1.6;
     max-width: 100%;
     color: #c4ccd6;
     margin-top: 0;
-    margin-bottom: 1.5vh;
+    margin-bottom: 2vh;
     text-align: justify !important;
     /* Always justify */
     flex-grow: 0;
@@ -609,6 +609,43 @@ body {
     }
 }
 
+.global-preview-container {
+    display: none;
+    position: fixed;
+    right: 5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    height: auto;
+    max-width: 45vw;
+    max-height: 85vh;
+    background: #fff;
+    border: 5px solid #64ffda;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    z-index: 2147483647;
+    /* Max z-index possible */
+    padding: 0;
+    pointer-events: none;
+    /* Pass through clicks */
+}
+
+.global-preview-container img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+}
+
+/* Hide original nested preview on desktop since we use global */
+@media (min-width: 901px) {
+    .cert-item:hover .cert-preview {
+        display: none !important;
+    }
+}
+
 @media (max-width: 900px) {
     .cert-preview {
         display: none !important;
@@ -688,7 +725,7 @@ body {
     line-height: 1.6;
     margin-bottom: 1rem;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
     overflow: hidden;
     transition: all 0.3s;
@@ -750,8 +787,12 @@ body {
     background: rgba(0, 0, 0, 0.3);
     border: 1px dashed rgba(100, 255, 218, 0.3);
     border-radius: 8px;
-    height: 100%;
+    height: auto;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    /* Always Square */
     position: relative;
+    overflow: hidden;
 }
 
 /* Expansion Logic */
@@ -762,6 +803,12 @@ body {
         opacity: 0.2;
         filter: blur(2px);
         transition: opacity 0.3s, filter 0.3s;
+    }
+
+    /* Desktop Collapsed Card Title */
+    .project-card h3 {
+        font-size: 1.4rem;
+        /* Increased from 1.15rem */
     }
 
     .project-card:hover {
@@ -775,76 +822,140 @@ body {
         background: #0d2d24;
         border: 2px solid #64ffda;
         box-shadow: 0 30px 60px rgba(0, 0, 0, 0.95);
+
+        /* Grid Setup for Unboxed Content */
+        /* Grid Setup for Unboxed Content */
         display: grid;
-        grid-template-columns: 1.5fr 1fr;
-        gap: 2rem;
-        padding: 2rem;
-        padding-bottom: 2rem;
+        grid-template-columns: 1.2fr 1fr;
+        /* Text Area vs Image Area */
+        grid-template-rows: auto min-content min-content;
+        /* Title, Text, Tags - Natural height */
+        gap: 0.5rem 2rem;
+        /* Reduced vertical gap */
+        padding: 2.5rem;
+        align-content: start;
+        /* Align content to start to keep title at top */
         transform: none;
     }
 
-    /* Force stacked layout when card is expanded but screen is narrow/tall */
-    @media (max-width: 1100px),
-    (max-aspect-ratio: 1/1) {
-        .project-card:hover {
-            grid-template-columns: 1fr;
-            grid-template-rows: auto 1fr;
-            gap: 1rem;
-            overflow-y: auto;
-        }
-
-        .project-card:hover .card-content {
-            order: 0;
-            max-height: none;
-        }
-
-        .project-card:hover .card-image-col {
-            order: 1;
-            height: auto;
-            min-height: 300px;
-        }
+    /* Unbox the card-content wrapper so children participate in main grid */
+    .project-card:hover .card-content {
+        display: contents;
     }
 
+    /* Title: Top Center */
     .project-card:hover h3 {
-        font-size: 1.4rem;
+        grid-column: 1 / -1;
+        text-align: center;
+        font-size: 2.2rem;
+        /* Larger Title */
+        margin-bottom: 2rem;
+        width: 100%;
+        border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+        padding-bottom: 1rem;
     }
 
+    /* Text: Left Column */
     .project-card:hover .card-text {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
         -webkit-line-clamp: unset;
         overflow: visible;
-        flex: 1;
+        /* No scroll needed */
+        display: block;
+        padding-right: 1rem;
+        max-height: none;
+        /* Remove constraint */
+        font-size: clamp(1rem, 2vh, 1.4rem);
+        /* Dynamic Font Size */
+        text-align: justify;
+        margin-bottom: 1rem;
+        /* Space before tags */
     }
 
+    /* Tags: Left Column, below text */
     .project-card:hover .card-tags {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
         display: flex;
-        margin-top: 1rem;
-        padding-top: 0;
+        flex-wrap: wrap;
         opacity: 1;
         animation: none;
+        align-self: start;
+        /* Follows text immediately */
+        margin-top: 0;
     }
 
+    /* Image: Right Column, Spanning Text & Tags rows */
+    .project-card:hover .card-image-col {
+        grid-column: 2 / 3;
+        grid-row: 2 / 4;
+        display: block;
+        width: 100%;
+        height: 100%;
+        max-width: 550px;
+        /* Safety cap */
+        max-height: 550px;
+        /* Safety cap */
+        min-height: 0;
+        align-self: center;
+        /* Center in cell */
+        justify-self: center;
+        /* Center in cell */
+        order: unset;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: auto;
+        /* Ensure spacing from edges */
+    }
+
+    .project-card:hover .card-image-col img {
+        object-fit: cover;
+        /* Cover the area without distortion */
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        display: block;
+    }
+
+    /* Hide footer */
     .project-card:hover .card-footer {
         display: none;
     }
 
-    .project-card:hover .card-image-col {
-        order: 2;
-        display: block;
-        height: 100%;
+    /* SPECIFIC: No-Image Card Layout */
+    .project-card.no-image:hover {
+        grid-template-columns: 1fr;
+        /* Single column */
+        justify-items: center;
+        /* Center content horizontally */
     }
 
-    .project-card:hover .card-content {
-        order: 1;
-        overflow-y: auto;
-        padding-right: 0.5rem;
-        max-height: 100%;
+    .project-card.no-image:hover .card-text {
+        grid-column: 1 / -1;
+        /* Span full width */
+        max-width: 80%;
+        /* Restrict width for readability */
+        justify-self: center;
+        text-align: justify;
+        /* Keep text justified */
+        margin-right: 0;
+        /* Reset padding/margin */
+        padding-right: 0;
     }
 
-    .project-card:hover .card-content::-webkit-scrollbar {
-        width: 6px;
+    .project-card.no-image:hover .card-tags {
+        grid-column: 1 / -1;
+        justify-self: center;
+        justify-content: center;
     }
 
-    .project-card:hover .card-content::-webkit-scrollbar-thumb {
+    /* Custom Scrollbar for text area */
+    .project-card:hover .card-text::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .project-card:hover .card-text::-webkit-scrollbar-thumb {
         background-color: rgba(100, 255, 218, 0.3);
         border-radius: 4px;
     }
@@ -854,7 +965,8 @@ body {
 .carousel-slides img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    /* Fill the square */
     /* Ensure full image is visible */
     border-radius: 8px;
     background: rgba(0, 0, 0, 0.2);
@@ -959,21 +1071,27 @@ body {
     box-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
 }
 
+.mobile-btn-container {
+    display: none;
+}
+
 .curriculum-embed-container {
-    width: 100%;
-    /* Occupy full container width */
-    height: 85vh;
-    /* Increase height for better view */
-    overflow-y: auto;
-    /* Allow vertical scroll */
-    overflow-x: hidden;
-    /* No horizontal scroll */
-    margin-top: 1rem;
-    margin-bottom: 0;
     margin: 1rem auto 0 auto;
+
+    /* Aspect Ratio & Responsive Sizing (Fit Contain) */
+    aspect-ratio: 210 / 297;
+    width: min(100%, calc(85vh * (210 / 297)));
+    height: auto;
+    /* Height driven by width + aspect-ratio */
+
+    /* Ensure it doesn't overflow height if width calc was capped */
+    max-height: 85vh;
+
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
-    background: rgba(0, 0, 0, 0.2);
+    background: transparent;
+    overflow-y: hidden;
+    /* Prevent scrollbar double */
     scrollbar-width: thin;
     scrollbar-color: #64ffda rgba(255, 255, 255, 0.05);
 }
@@ -1134,7 +1252,9 @@ body {
 
 /* Carousel */
 .carousel {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -1262,6 +1382,8 @@ body {
         min-height: 60px;
         border-right: none;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        overflow: visible !important;
+        /* Allow fixed popup to escape */
     }
 
     .accordion-item.active {
@@ -1290,7 +1412,9 @@ body {
         margin-top: 0;
         opacity: 1;
         visibility: visible;
-        transform: none;
+        transform: none !important;
+        transition: opacity 0.3s ease !important;
+        /* Remove transform transition */
         height: auto;
         overflow: visible;
         display: none;
@@ -1328,19 +1452,20 @@ body {
         width: 70%;
         max-width: 320px;
         height: auto;
-        aspect-ratio: 5 / 4;
-        /* Force 5x4 landscape ratio on mobile */
+        min-height: 0 !important;
+        /* Override global 250px min-height */
+        /* aspect-ratio removed to fit content strictly */
         margin: 0 auto;
         flex: 0 0 auto;
         overflow: hidden;
-        /* Ensure rounded corners clip properly */
+        display: block;
+        line-height: 0;
     }
 
     .photo-block img {
         width: 100%;
-        height: 100%;
-        object-fit: contain !important;
-        /* Strictly prevent cropping/zoom */
+        height: auto;
+        object-fit: contain;
     }
 
     /* Reset About Wrapper for Mobile Scroll */
@@ -1369,6 +1494,22 @@ body {
         gap: 0;
     }
 
+    .hobby-item span {
+        white-space: nowrap !important;
+        /* Prevent line breaks */
+    }
+
+    /* Modal Text Refinement for Mobile */
+    .modal-body {
+        padding: 1.5rem 1rem !important;
+        /* Reduced side padding */
+    }
+
+    .modal-body p {
+        text-align: justify !important;
+        /* Justified Text */
+    }
+
     /* Project Cards Mobile Overrides */
     .projects-grid {
         display: flex;
@@ -1388,15 +1529,32 @@ body {
     .project-card:not(.mobile-expanded):hover {
         position: relative !important;
         width: 100% !important;
-        height: auto !important;
-        margin: 0 !important;
-        transform: none !important;
-        box-shadow: none !important;
-        z-index: 1 !important;
-        background: rgba(255, 255, 255, 0.05) !important;
-        padding: 1.5rem !important;
-        display: flex !important;
+        /* ... existing ... */
     }
+
+    /* Compact collapsed card */
+    .project-card:not(.mobile-expanded) {
+        padding: 1.5rem 1.25rem !important;
+        /* Move content down slightly */
+        min-height: 150px !important;
+        height: auto !important;
+        margin-bottom: 0 !important;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: flex-start;
+        /* Start from top */
+        gap: 0.5rem;
+        /* Space between title and text */
+    }
+
+    .project-card:not(.mobile-expanded) .card-text p {
+        /* Show a bit more text */
+        -webkit-line-clamp: 3 !important;
+        /* Increased from 2 */
+        margin-bottom: 0;
+    }
+
+
 
     .project-card:not(.mobile-expanded):hover .card-text {
         -webkit-line-clamp: 3 !important;
@@ -1483,6 +1641,38 @@ body {
         font-size: clamp(0.9rem, 2vh, 1.8rem) !important;
         margin-bottom: 1.5rem !important;
     }
+
+    .curriculum-embed-container {
+        /* Mobile "Contain" Logic */
+        width: min(100%, calc((100vh - 160px) * (210 / 297)));
+        height: auto;
+        min-height: 0;
+        /* Remove hard min-height to strictly follow ratio */
+        max-height: calc(100vh - 160px);
+    }
+
+    .section-title .download-btn {
+        display: none;
+    }
+
+    .mobile-btn-container {
+        display: block;
+        text-align: center;
+        margin-top: 1.5rem;
+        padding-bottom: 2rem;
+        /* Add some padding at bottom */
+    }
+
+    .mobile-download {
+        display: inline-block;
+        width: 100%;
+        max-width: 300px;
+        /* Optional cap */
+    }
+
+    .project-card.mobile-expanded .card-text {
+        text-align: justify;
+    }
 }
 
 /* --- Responsive Grid for Highlights (Narrow Desktop/Tablet) --- */
@@ -1511,55 +1701,153 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 95vw;
-    height: 90vh;
-    /* Maximize height */
-    max-width: none;
-    max-height: none;
+    width: 90vw;
+    height: auto;
+    max-height: 85vh;
+    /* Ensure it fits in viewport */
+    max-width: 500px;
     background: #0d2d24;
-    z-index: 5000;
+    z-index: 99999;
+    /* Super high z-index */
     margin: 0 !important;
     padding: 1.5rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: column !important;
+    /* Force column stack */
     overflow-y: auto;
     border-radius: 16px;
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.85);
-    /* Darker backdrop */
     border: 2px solid #64ffda;
     justify-content: flex-start;
-    /* Align content to top */
 }
 
-/* Close Button Indicator using sticky positioning */
+/* Unbox content to allow reordering mixed with image */
+.project-card.mobile-expanded .card-content {
+    display: contents;
+}
+
+/* 1. Title */
+.project-card.mobile-expanded h3 {
+    order: 1;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+    padding-bottom: 0.5rem;
+    width: 100%;
+}
+
+/* 2. Text */
+.project-card.mobile-expanded .card-text {
+    order: 2;
+    text-align: justify;
+    margin-bottom: 1.5rem;
+}
+
+/* 3. Image */
+.project-card.mobile-expanded .card-image-col {
+    display: block !important;
+    order: 3 !important;
+    width: 100%;
+    max-width: 300px;
+    height: 0 !important;
+    /* Height is set by padding */
+    padding-top: 100%;
+    /* Force 1:1 Aspect Ratio (Circle/Square) */
+    /* aspect-ratio: 1 / 1; Removed in favor of padding trick */
+    margin: 0 auto 1.5rem auto;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 5002;
+    visibility: visible !important;
+    background: transparent;
+    overflow: hidden;
+    /* Crop content */
+}
+
+/* 4. Tags */
+.project-card.mobile-expanded .card-tags {
+    order: 4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    /* Left Alignment */
+    gap: 0.5rem;
+}
+
+/* Fix Carousel Visibility */
+.project-card.mobile-expanded .carousel,
+.project-card.mobile-expanded .carousel-slides {
+    visibility: visible !important;
+    opacity: 1;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    border-radius: 8px;
+    /* Match parent radius */
+}
+
+/* Only the ACTIVE image should be displayed (JS handles display:block/none) */
+.project-card.mobile-expanded .card-image-col img {
+    visibility: visible !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 8px;
+    position: absolute;
+    /* Force it to overlay correctly */
+    top: 0;
+    left: 0;
+}
+
+.project-card.mobile-expanded .carousel-btn,
+.project-card.mobile-expanded .carousel-indicators {
+    display: flex !important;
+    visibility: visible !important;
+    z-index: 5010;
+}
+
+/* Close Button Indicator - Sticky & Overlay */
 .project-card.mobile-expanded::before {
     content: '\00D7';
-    position: absolute;
-    /* Changed to absolute to pin to corner */
+    position: sticky;
+    /* Sticks to top of scroll container */
     top: 10px;
-    right: 10px;
-    float: none;
+    align-self: flex-end;
+    /* Align to right */
+
+    /* Overlay Styles */
+    margin-bottom: -50px;
+    /* Pull content up so it doesn't push */
+    opacity: 0.7;
+
     font-size: 2.5rem;
     color: #64ffda;
     cursor: pointer;
     line-height: 0.6;
-    z-index: 5001;
-    background: rgba(13, 45, 36, 0.8);
+    z-index: 5005;
+    /* Highest */
+    background: rgba(13, 45, 36, 0.9);
     border-radius: 50%;
     padding: 0.2rem 0.5rem;
-    margin: 0;
+    margin-right: 10px;
+    /* Spacing from edge */
     width: 40px;
     height: 40px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .project-card.mobile-expanded::after {
     display: none;
 }
-}
+
 
 /* --- Responsive Grid for Highlights (Narrow Desktop/Tablet) --- */
 @media (max-width: 1200px) {
@@ -1613,16 +1901,20 @@ body {
         width: 60%;
         max-width: 320px;
         height: auto;
-        /* aspect-ratio removed to let image dictate height via contain if needed, or keep it flexible */
-        aspect-ratio: 5 / 4 !important;
+        min-height: 0 !important;
+        /* Override global 250px min-height */
+        /* Remove fixed ratio to fit content */
+        aspect-ratio: auto !important;
         max-height: none;
         margin-top: 1rem;
+        display: block;
+        /* Ensure it wraps content */
+        line-height: 0;
     }
 
     .photo-block img {
-        object-fit: cover !important;
-        /* Revert to cover for fill on mobile if contain leaves too much gap, or keep contain if preferred. User complaint was overflow. Let's stick to contain but fix overflow first, OR try cover if ratio matches perfectly. Given the user uploaded specific 5x4 image, cover is safer for frame fill if ratio is exact. Let's keep contain as requested earlier but fix the overflow container. */
-        /* Actually, user said 'moldura quebrada', 'foto dando overflow'. This means the image is spilling OUT of the border-radius. Overflow: hidden fixes this. */
+        width: 100%;
+        height: auto !important;
         object-fit: contain !important;
     }
 
@@ -1787,10 +2079,7 @@ body {
         /* Larger hero title */
     }
 
-    .hero-text h1 {
-        font-size: 5rem;
-        /* Larger hero title */
-    }
+
 
     /* Projects Grid */
     .projects-grid {

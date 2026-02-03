@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Force scroll to top on load for mobile
+    if (window.innerWidth <= 900) {
+        window.scrollTo(0, 0);
+    }
+
     const items = document.querySelectorAll('.accordion-item');
 
     items.forEach(item => {
@@ -11,6 +16,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Adiciona a classe ativa ao item clicado
             item.classList.add('active');
+
+            // Mobile: Scroll to top of the activated tab
+            if (window.innerWidth <= 900) {
+                setTimeout(() => {
+                    item.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 300); // 300ms delay to allow transition
+            }
+
+            // Refresh PDF iframe if Curriculum tab is activated
+            if (item.id === 'tab-curriculum') {
+                const iframe = item.querySelector('iframe');
+                if (iframe) {
+                    // Force completely fresh load for Safari
+                    setTimeout(() => {
+                        const currentSrc = iframe.src.split('?')[0].split('#')[0];
+                        const date = new Date();
+                        iframe.src = `${currentSrc}?t=${date.getTime()}#view=FitH&scrollbar=0&toolbar=0&navpanes=0`;
+                    }, 850);
+                }
+            }
         });
     });
 
@@ -74,6 +102,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+
+    // --- Global Certificate Preview Logic (Solves Z-Index/Overflow Issues) ---
+    const globalPreview = document.getElementById('global-cert-preview');
+
+    if (globalPreview && window.innerWidth > 900) {
+        document.querySelectorAll('.cert-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const localPreviewImg = item.querySelector('.cert-preview img');
+                if (localPreviewImg) {
+                    globalPreview.innerHTML = '';
+                    const imgClone = localPreviewImg.cloneNode(true);
+                    globalPreview.appendChild(imgClone);
+                    globalPreview.style.display = 'block';
+                    // Optional: Add fade-in animation class here if desired
+                }
+            });
+
+            item.addEventListener('mouseleave', () => {
+                globalPreview.style.display = 'none';
+                globalPreview.innerHTML = '';
+            });
+        });
+    }
 });
 
 // --- Carousel Logic ---
@@ -127,26 +179,7 @@ function setSlide(carouselId, index, event) {
 // Initialize on load
 document.addEventListener('DOMContentLoaded', initCarousels);
 
-// --- Thank You Modal Logic ---
 
-function showThankYouModal() {
-    const modal = document.getElementById('thank-you-modal');
-    if (modal) {
-        modal.classList.add('active'); // Show modal
-
-        // Auto close after 10 seconds
-        setTimeout(() => {
-            closeThankYouModal();
-        }, 10000);
-    }
-}
-
-function closeThankYouModal() {
-    const modal = document.getElementById('thank-you-modal');
-    if (modal) {
-        modal.classList.remove('active');
-    }
-}
 
 // --- Mobile Project Card Expansion Logic ---
 document.addEventListener('DOMContentLoaded', () => {
