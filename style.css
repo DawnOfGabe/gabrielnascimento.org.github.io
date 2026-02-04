@@ -503,7 +503,7 @@ body {
 
 .split-layout {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1fr 1.5fr;
     gap: 2rem;
     height: 100%;
     align-items: start;
@@ -520,6 +520,7 @@ body {
 
 .split-col.right-col {
     padding-left: 1rem;
+    padding-right: 0;
 }
 
 @media (max-width: 900px) {
@@ -572,7 +573,7 @@ body {
 
 .cert-item {
     position: relative;
-    max-width: 90%;
+    max-width: 100%;
     cursor: pointer;
     transition: transform 0.2s;
 }
@@ -671,7 +672,7 @@ body {
 .global-preview-container {
     display: none;
     position: fixed;
-    right: 5rem;
+    left: 5rem;
     top: 50%;
     transform: translateY(-50%);
     width: auto;
@@ -1459,7 +1460,8 @@ body {
     margin-top: 2rem;
 }
 
-.seek-content p {
+.seek-content p,
+.seek-content li {
     font-size: clamp(1.2rem, 2.5vh, 2.5rem);
     /* Adjusted for desktop responsiveness */
     line-height: 1.5;
@@ -1752,7 +1754,8 @@ body {
     }
 
     /* Revert seek content font for mobile */
-    .seek-content p {
+    .seek-content p,
+    .seek-content li {
         font-size: clamp(0.9rem, 2vh, 1.8rem) !important;
         margin-bottom: 1.5rem !important;
     }
@@ -2226,4 +2229,16 @@ body {
 .description,
 .seek-content p {
     text-align: justify !important;
+}
+
+.seek-content ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.seek-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    color: #c4ccd6;
 }
