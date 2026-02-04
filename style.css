@@ -161,20 +161,27 @@ body {
 
     .curriculum-embed-container {
         flex: 1;
-        /* Take remaining height */
-        height: auto !important;
-        /* Override fixed 85vh */
-        overflow-y: auto !important;
-        /* Enable Container Scroll (Green) */
+        width: 100%;
+        /* Ensure full width */
+        height: 100% !important;
+        /* Fit to parent */
+        overflow: hidden !important;
+        /* Disable Container Scroll */
         margin-bottom: 0;
+        display: block;
+        /* Ensure block layout */
     }
 
     /* Force iframe to be tall enough to trigger container scroll 
        but essentially match the aspect ratio of the zoomed content 
        (85vh * 1.82 = ~155vh) to avoid empty gray space */
     .curriculum-iframe {
-        height: 158vh !important;
+        width: 100% !important;
+        /* Force full width */
+        height: 100% !important;
+        /* Fit to container */
         min-height: 0;
+        display: block;
     }
 }
 
@@ -431,7 +438,8 @@ body {
     text-align: left;
     /* Force left alignment */
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: max-content max-content;
+    justify-content: start;
     gap: 0.5rem 2rem;
     flex: 1;
 }
@@ -1319,7 +1327,7 @@ body {
 }
 
 .modal-body p {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     line-height: 1.8;
     color: #b0c4de;
     margin-bottom: 1.5rem;
