@@ -1770,8 +1770,9 @@ body {
 
     .curriculum-embed-container {
         width: 100%;
-        height: 80vh;
-        /* Fixed height for mobile */
+        height: auto;
+        aspect-ratio: 3 / 4;
+        /* Proportional height */
         margin-top: 1rem;
         overflow-y: hidden;
         /* Let iframe scroll */
