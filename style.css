@@ -2252,6 +2252,26 @@ body {
     margin-top: 0.5rem;
 }
 
+/* Utility classes for PDF Viewer */
+.desktop-only {
+    display: block;
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .desktop-only {
+        display: none !important;
+    }
+
+    .mobile-only {
+        display: block !important;
+    }
+}
+
+
 .seek-content li {
     margin-bottom: 0.5rem;
     line-height: 1.6;

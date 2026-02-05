@@ -646,12 +646,18 @@
                             BAIXAR CURRÍCULO
                         </a>
                     </div>
-
                     <div class="curriculum-embed-container">
+                        <!-- Desktop Viewer (Native PDF) -->
                         <iframe
                             src="public/curriculum/Curriculo%20GABRIEL%20NASCIMENTO.pdf#toolbar=0&navpanes=0&view=FitH&zoom=page-width"
-                            class="curriculum-iframe" width="100%" height="100%" style="border: none;"
+                            class="curriculum-iframe desktop-only" width="100%" height="100%" style="border: none;"
                             type="application/pdf"></iframe>
+
+                        <!-- Mobile Viewer (Google Docs Fallback for Android/iOS) -->
+                        <iframe
+                            src="https://docs.google.com/viewer?url=https://gabrielnascimento.org/public/curriculum/Curriculo%20GABRIEL%20NASCIMENTO.pdf&embedded=true"
+                            class="curriculum-iframe mobile-only" width="100%" height="100%"
+                            style="border: none;"></iframe>
                     </div>
 
                     <!-- Mobile Download Button -->
